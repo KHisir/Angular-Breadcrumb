@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
+  integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous" />
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" />
+
+<div id="bc-wrapper">
+  <ol #olElem>
+    <li *ngFor="let item of items; let i = index" [class.active]="i !== 0 && i === items.length - 1"
+      [class.hide]="item.ShowInDropdown === true" [attr.id]="item.Id" [style.width.px]="itemWidth"
+      (click)="itemOnClick(item, dropdownItem)" #dropdownItem>
+      <a>
+        <span class="cc-badge" [class.hide]="item.Badge === ''">{{
+          item.Badge
+          }}</span><i class="fas {{ item.Icon }}"></i>
+        <span>{{ item.DisplayName }}</span></a>
+      <span class="cc-divider" [hidden]="i === items.length - 1">{{ separator }}</span>
+
+      <div class="cc-dropdown-menu" *ngIf="item.Id === dropdownItemId" [class.show]="dropdownIsOpen === true">
+        <a *ngFor="let _item of dropdownList" [attr.id]="_item.Id" (click)="itemOnClick(_item)">
+          <span class="cc-badge" [class.hide]="_item.Badge === ''"><i class="fas {{ _item.Icon }}"></i>{{ _item.Badge
+            }}</span>
+          {{ _item.DisplayName }}</a>
+      </div>
+    </li>
+  </ol>
+</div>

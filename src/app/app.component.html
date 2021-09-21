@@ -1,0 +1,12 @@
+<router-outlet></router-outlet>
+
+<!-- Playground -->
+<input class="elem" type="text" placeholder="enter name" [(ngModel)]="itemName"><br>
+<input class="elem" type="text" placeholder="enter badge text" [(ngModel)]="itemBadge"><br>
+<select class="elem" [(ngModel)]="icon">
+    <option *ngFor="let icon of icons" [value]="icon">{{icon}}</option>
+</select><br>
+<button class="elem" [disabled]="itemName === ''" (click)="addItem()">Add item</button><br><br>
+<!-- @end -->
+
+<app-cc-breadcrumb [items]="items"></app-cc-breadcrumb>

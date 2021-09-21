@@ -1,0 +1,125 @@
+$primary-color: #ff4a85;
+$secondary-color: #fff;
+$border-color: lightgray;
+
+#bc-wrapper {
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  font-family: quicksand, open sans, roboto, open sans, nunito, sans-serif;
+  min-width: 300px;
+
+  > ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem 20px;
+    white-space: nowrap;
+
+    li {
+      cursor: pointer;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      text-align: center;
+
+      > a {
+        width: 100%;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .cc-badge, i {
+          margin-right: 3px;
+        }
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      &.active {
+        font-weight: bold;
+        color: $primary-color;
+      }
+
+      &.hide {
+        display: none;
+      }
+
+      &#breadcrumb-dropdown-item {
+        position: relative;
+        > .cc-dropdown-menu {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          inset: 0px auto auto 0px;
+          margin: 0px;
+          -webkit-transform: translate3d(0px, 40px, 0px);
+          transform: translate3d(0px, 40px, 0px);
+          z-index: 1000;
+          min-width: 10rem;
+          padding: 0.5rem 0;
+          font-size: 1rem;
+          color: #212529;
+          text-align: left;
+          list-style: none;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 0.25rem;
+          &.show {
+            visibility: visible;
+            opacity: 1;
+          }
+          a {
+            display: block;
+            text-align: left;
+            padding: 7.5px;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            &:hover {
+              background-color: $primary-color;
+              color: $secondary-color;
+
+              .cc-badge {
+                border: 1px solid $secondary-color;
+              }
+            }
+          }
+        }
+      }
+
+      .cc-badge {
+        border-radius: 50rem;
+        background-color: $primary-color;
+        color: $secondary-color;
+
+        display: inline-block;
+        padding: 0.35em 0.65em;
+        font-size: 0.75em;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        margin-right: 2px;
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      .cc-divider {
+        // margin-left: 10px;
+        // margin-right: 10px;
+        opacity: 0.3;
+      }
+    }
+  }
+}
